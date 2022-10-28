@@ -7,11 +7,7 @@ public:
         for(int i=0;i<n;i++){
             string s=strs[i];
             sort(s.begin(),s.end());
-            if(m.find(s)==m.end()){
-                m[s].push_back(strs[i]);
-            }else{
-                m[s].push_back(strs[i]);
-            }
+            m[s].push_back(strs[i]);
         }
         for(auto i:m){
             v.push_back(i.second);
