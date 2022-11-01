@@ -4,6 +4,7 @@ public:
         if(rsize<=r||csize<=c||c<0||r<0)return false;
         return true;
     }
+    
     int DFS(vector<vector<int>>& grid,int r,int c){
         if(r==grid.size())return c;
         if(valid(grid.size(),grid[0].size(),r,c)){
@@ -19,11 +20,12 @@ public:
         }
         return -1;
     }
+    
     vector<int> findBall(vector<vector<int>>& grid){
-        int row = grid.size(),col = grid[0].size();
-        vector<int>ans(col,0);
-        for(int c = 0;c<col;c++){
-            ans[c] = DFS(grid,0,c);
+        int n = grid.size(),m = grid[0].size();
+        vector<int>ans(m,0);
+        for(int i = 0;i<m;i++){
+            ans[i] = DFS(grid,0,i);
         }
     return ans;  
     }
