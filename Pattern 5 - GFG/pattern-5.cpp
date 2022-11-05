@@ -10,14 +10,14 @@ public:
 	void printTriangle(int n) {
 	    // code here
 	    int i=1,j=n;
-	    while(i<=n){
+	    while(j){
 	        int k=1;
 	        while(k<=j){
 	            cout<<"*"<<" ";
 	            k++;
 	        }
 	        cout<<"\n";
-	        i++;j--;
+	        j--;
 	    }
 	}
 };
