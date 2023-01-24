@@ -32,7 +32,7 @@ class Solution {
             }
             
             if(c==0){
-                if(i!=D)
+                
                 v.push_back(i);
             }
         }
