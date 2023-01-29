@@ -10,17 +10,23 @@ public:
 	void immediateSmaller(vector<int>&arr, int n) {
 	    //  code here
 	    vector<int>ans(n);
-	    ans[n-1]=-1;
+	    
+	    int x=arr[n-1];
+	    arr[n-1]=-1;
 	    for(int i=n-2;i>=0;i--){
-	        if(arr[i]<=arr[i+1]){
-	            ans[i]=-1;
+	        
+	        if(arr[i]<=x){
+	            x=arr[i];
+	            arr[i]=-1;
 	        }else{
-	            ans[i]=arr[i+1];
+	            int y=arr[i];
+	            arr[i]=x;
+	            x=y;
 	        }
 	    }
-	    for(int i=0;i<n;i++){
-	        arr[i]=ans[i];
-	    }
+	   // for(int i=0;i<n;i++){
+	   //     arr[i]=ans[i];
+	   // }
 	}
 
 };
