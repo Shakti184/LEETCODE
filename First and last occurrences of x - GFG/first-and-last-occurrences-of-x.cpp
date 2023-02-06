@@ -3,30 +3,42 @@
 using namespace std;
 
 // } Driver Code Ends
-vector<int> find(int arr[], int n , int x )
-{
-    // code here
-    int l=0,l1=-1,h1=-1,h=n-1;
+
+int FO_BS(int arr[],int k,int n){
+    int l=0,h=n-1,m;
     while(l<=h){
-        int m=(l+h)/2;
-        if(arr[m]==x){
-            l1=m;
-            h1=m;
-        }
-        if(arr[m]>x){
+        m=(l+h)/2;
+        if((m==0&&arr[m]==k)||(m-1>=0&&arr[m-1]!=k&&arr[m]==k)) return m;
+        if(arr[m]>=k){
             h=m-1;
         }else{
             l=m+1;
         }
     }
-    
-    while(l1-1>=0&&arr[l1-1]==x){
-        l1--;
+    return -1;
+}
+
+int LO_BS(int arr[],int k,int n){
+    int l=0,h=n-1,m;
+    while(l<=h){
+        m=(l+h)/2;
+        if((m==n-1&&arr[m]==k)||(m+1<n&&arr[m+1]!=k&&arr[m]==k)) return m;
+        if(arr[m]>k){
+            h=m-1;
+        }else{
+            l=m+1;
+        }
     }
-    while(h1+1<n&&arr[h1+1]==x){
-        h1++;
-    }
-    return {l1,h1};
+    return -1;
+}
+
+
+vector<int> find(int arr[], int n , int x )
+{
+    // code here
+    int a=FO_BS(arr,x,n);
+    int b=LO_BS(arr,x,n);
+    return {a,b};
 }
 
 //{ Driver Code Starts.
