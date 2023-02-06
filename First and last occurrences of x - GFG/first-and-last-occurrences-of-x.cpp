@@ -9,10 +9,10 @@ int FO_BS(int arr[],int k,int n){
     while(l<=h){
         m=(l+h)/2;
         if((m==0&&arr[m]==k)||(m-1>=0&&arr[m-1]!=k&&arr[m]==k)) return m;
-        if(arr[m]>=k){
-            h=m-1;
-        }else{
+        if(arr[m]<k){
             l=m+1;
+        }else{
+            h=m-1;
         }
     }
     return -1;
@@ -23,10 +23,10 @@ int LO_BS(int arr[],int k,int n){
     while(l<=h){
         m=(l+h)/2;
         if((m==n-1&&arr[m]==k)||(m+1<n&&arr[m+1]!=k&&arr[m]==k)) return m;
-        if(arr[m]>k){
-            h=m-1;
-        }else{
+        if(arr[m]<=k){
             l=m+1;
+        }else{
+            h=m-1;
         }
     }
     return -1;
